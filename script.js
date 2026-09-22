@@ -264,3 +264,114 @@ if (navTargets.length) {
 
   navTargets.forEach(item => navObserver.observe(item.target));
 }
+
+
+/* =========================================================
+   HERO CONCEITUAL — palavras mudam o universo visual
+   ========================================================= */
+const heroTriggers = [...document.querySelectorAll(".hero-trigger")];
+const heroContext = document.querySelector(".hero-context");
+const heroContextNumber = document.querySelector(".hero-context-number");
+const heroContextTitle = document.querySelector(".hero-context-title");
+const heroContextCopy = document.querySelector(".hero-context-copy");
+const heroScenes = document.querySelector(".hero-scenes");
+
+const HERO_STATES = {
+  cavernas: {
+    number:"01",
+    title:"CAVERNAS",
+    copy:"Um lugar já existia. A narrativa ainda não."
+  },
+  cidades: {
+    number:"02",
+    title:"CIDADES",
+    copy:"Território também pode virar argumento."
+  },
+  tecnologia: {
+    number:"03",
+    title:"TECNOLOGIA",
+    copy:"Antes do produto, uma promessa precisa fazer sentido."
+  },
+  politica: {
+    number:"04",
+    title:"POLÍTICA",
+    copy:"Quando cada palavra disputa atenção."
+  },
+  ideias: {
+    number:"05",
+    title:"IDEIAS",
+    copy:"Às vezes, vender começa antes de existir."
+  }
+};
+
+let heroSwitchTimer = null;
+
+function setHeroMode(mode) {
+  if (!hero || !HERO_STATES[mode]) return;
+
+  hero.dataset.heroMode = mode;
+
+  heroTriggers.forEach(trigger => {
+    trigger.setAttribute("aria-pressed", String(trigger.dataset.mode === mode));
+  });
+
+  if (!heroContext || !heroContextNumber || !heroContextTitle || !heroContextCopy) return;
+
+  const state = HERO_STATES[mode];
+  heroContext.classList.add("is-switching");
+  window.clearTimeout(heroSwitchTimer);
+
+  heroSwitchTimer = window.setTimeout(() => {
+    heroContextNumber.textContent = state.number;
+    heroContextTitle.textContent = state.title;
+    heroContextCopy.textContent = state.copy;
+    heroContext.classList.remove("is-switching");
+  }, reduceMotion ? 0 : 115);
+}
+
+heroTriggers.forEach(trigger => {
+  trigger.setAttribute("aria-pressed", String(trigger.dataset.mode === "ideias"));
+
+  trigger.addEventListener("pointerenter", () => {
+    if (finePointer) setHeroMode(trigger.dataset.mode);
+  });
+
+  trigger.addEventListener("focus", () => {
+    setHeroMode(trigger.dataset.mode);
+  });
+
+  trigger.addEventListener("click", () => {
+    setHeroMode(trigger.dataset.mode);
+  });
+});
+
+/* O universo visual também responde à posição do ponteiro. */
+if (hero && heroScenes && finePointer && !reduceMotion) {
+  hero.addEventListener("pointermove", event => {
+    const rect = hero.getBoundingClientRect();
+    const nx = (event.clientX - rect.left) / rect.width - .5;
+    const ny = (event.clientY - rect.top) / rect.height - .5;
+    hero.style.setProperty("--scene-x", `${nx * 18}px`);
+    hero.style.setProperty("--scene-y", `${ny * 12}px`);
+  });
+
+  hero.addEventListener("pointerleave", () => {
+    hero.style.setProperty("--scene-x", "0px");
+    hero.style.setProperty("--scene-y", "0px");
+  });
+}
+
+/* Cursor vira apenas um sinal de exploração sobre as palavras da hero. */
+if (cursor && finePointer) {
+  heroTriggers.forEach(trigger => {
+    trigger.addEventListener("pointerenter", () => {
+      cursor.classList.remove("is-action");
+      cursor.classList.add("is-link");
+    });
+    trigger.addEventListener("pointerleave", () => {
+      cursor.classList.remove("is-link");
+    });
+  });
+}
+
+setHeroMode("ideias");
