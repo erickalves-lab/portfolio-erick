@@ -1555,3 +1555,137 @@
     margin-top:40px;
   }
 }
+
+
+/* =========================================================
+   MOBILE HERO — composição editorial revisada
+   ========================================================= */
+@media (max-width:760px){
+  .hero,
+  .hero-concept{
+    min-height:100svh;
+    padding:88px var(--pad) 28px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+  }
+
+  .hero-top{
+    flex:0 0 auto;
+    margin:0;
+    opacity:.78;
+  }
+
+  .hero-title,
+  .hero-title-concept{
+    display:block;
+    width:100%;
+    max-width:100%;
+    margin:clamp(54px,10vh,82px) 0 0;
+    font-size:clamp(38px,10.9vw,48px);
+    line-height:.93;
+    letter-spacing:-.052em;
+    font-weight:650;
+    text-wrap:pretty;
+  }
+
+  .hero-line,
+  .hero-line:nth-child(2),
+  .hero-line:nth-child(4){
+    display:inline;
+    margin-left:0 !important;
+  }
+
+  .hero-line.muted{
+    color:#aab5c4;
+  }
+
+  .hero-line.gold{
+    color:var(--gold-soft);
+  }
+
+  .hero-trigger{
+    display:inline;
+    white-space:normal;
+  }
+
+  .hero-trigger::after{
+    bottom:-.025em;
+  }
+
+  .hero-footer,
+  .hero-footer-concept{
+    margin-top:auto;
+    padding-top:18px;
+    border-top:1px solid rgba(247,245,240,.18);
+  }
+
+  .hero-copy{
+    width:100%;
+    max-width:100%;
+    margin:0;
+    font-size:clamp(18px,5vw,21px);
+    line-height:1.16;
+    letter-spacing:-.025em;
+  }
+
+  .hero-copy strong{
+    display:block !important;
+    width:100%;
+    margin:7px 0 0 !important;
+    padding-left:0 !important;
+    color:var(--gold-soft);
+  }
+
+  .hero-grid{
+    opacity:.11;
+  }
+
+  .hero-glow{
+    width:84vw;
+    right:-46vw;
+    top:2vh;
+    opacity:.4;
+  }
+
+  .hero-scenes{
+    opacity:.18 !important;
+  }
+
+  .scene-cavernas,
+  .scene-cidades,
+  .scene-tecnologia,
+  .scene-politica{
+    opacity:0 !important;
+  }
+
+  .hero[data-hero-mode="cavernas"] .scene-cavernas,
+  .hero[data-hero-mode="cidades"] .scene-cidades,
+  .hero[data-hero-mode="tecnologia"] .scene-tecnologia,
+  .hero[data-hero-mode="politica"] .scene-politica{
+    opacity:.22 !important;
+  }
+
+  .hero[data-hero-mode="ideias"] .scene-ideias{
+    opacity:.34 !important;
+  }
+}
+
+@media (max-width:390px){
+  .hero,
+  .hero-concept{
+    padding-top:84px;
+    padding-bottom:24px;
+  }
+
+  .hero-title,
+  .hero-title-concept{
+    margin-top:48px;
+    font-size:clamp(36px,10.5vw,42px);
+    line-height:.95;
+  }
+
+  .hero-copy{
+    font-size:17.5px;
+  }
+}
