@@ -933,3 +933,555 @@
   display:inline-block;
   margin-left:.22em;
 }
+
+
+/* =========================================================
+   MOBILE — composição própria, não apenas desktop reduzido
+   ========================================================= */
+
+@media (max-width: 760px) {
+  :root{
+    --pad:20px;
+  }
+
+  html{
+    scroll-padding-top:72px;
+  }
+
+  body{
+    font-size:15px;
+  }
+
+  /* Header */
+  .site-header{
+    height:64px;
+    padding:0 var(--pad);
+    mix-blend-mode:normal;
+    background:linear-gradient(180deg,rgba(7,20,38,.94),rgba(7,20,38,.72),transparent);
+  }
+
+  .brand{
+    font-size:10px;
+    letter-spacing:.1em;
+  }
+
+  .brand-mark{
+    width:8px;
+    height:8px;
+  }
+
+  .nav{
+    display:none;
+  }
+
+  /* Hero */
+  .hero,
+  .hero-concept{
+    min-height:100svh;
+    padding:96px var(--pad) 28px;
+    justify-content:space-between;
+  }
+
+  .hero-grid{
+    opacity:.16;
+    background-size:44px 44px;
+  }
+
+  .hero-glow{
+    width:92vw;
+    right:-48vw;
+    top:-16vw;
+    opacity:.55;
+  }
+
+  .hero-top{
+    gap:9px;
+    font-size:8px;
+    line-height:1.25;
+    letter-spacing:.09em;
+  }
+
+  .hero-top i{
+    width:22px;
+  }
+
+  .hero-title,
+  .hero-title-concept{
+    width:100%;
+    margin:7vh 0 6vh;
+    font-size:clamp(42px,12.2vw,58px);
+    line-height:.91;
+    letter-spacing:-.058em;
+    font-weight:650;
+  }
+
+  .hero-line,
+  .hero-line:nth-child(2),
+  .hero-line:nth-child(4){
+    margin-left:0;
+  }
+
+  .hero-line{
+    max-width:100%;
+  }
+
+  .hero-trigger{
+    -webkit-tap-highlight-color:transparent;
+  }
+
+  .hero-trigger::after{
+    bottom:-.015em;
+    height:1.5px;
+  }
+
+  .hero-footer,
+  .hero-footer-concept{
+    display:block !important;
+    padding-top:18px;
+  }
+
+  .hero-copy{
+    max-width:94%;
+    font-size:clamp(19px,5.4vw,23px);
+    line-height:1.12;
+    letter-spacing:-.027em;
+  }
+
+  .hero-copy strong{
+    margin-left:0;
+  }
+
+  .hero-scenes{
+    opacity:.25 !important;
+  }
+
+  .scene-politica .poster,
+  .tech-line,
+  .city-block{
+    opacity:.42;
+  }
+
+  /* Labels */
+  .section-index,
+  .overline{
+    font-size:9px;
+    line-height:1.35;
+    letter-spacing:.11em;
+  }
+
+  /* Pensamento: no mobile vira sequência editorial, sem sticky longo */
+  .thinking{
+    min-height:auto;
+    padding:88px var(--pad) 96px;
+  }
+
+  .thinking-intro{
+    margin:52px 0 72px;
+    display:block;
+  }
+
+  .thinking-intro .overline{
+    margin-bottom:22px;
+  }
+
+  .thinking-intro h2{
+    max-width:100%;
+    font-size:clamp(43px,12.8vw,58px) !important;
+    line-height:.96 !important;
+    letter-spacing:-.055em;
+  }
+
+  .thinking-story{
+    min-height:auto;
+    display:block;
+  }
+
+  .thinking-copy{
+    position:static;
+    padding:0 0 54px;
+  }
+
+  .thinking-lead{
+    max-width:95%;
+    margin-bottom:20px;
+    font-size:clamp(29px,8.2vw,38px);
+    line-height:1;
+  }
+
+  .thinking-caption{
+    max-width:92%;
+    font-size:15px;
+    line-height:1.5;
+  }
+
+  .word-stage{
+    position:static;
+    height:auto;
+    overflow:visible;
+    border-bottom:0;
+  }
+
+  .word{
+    position:relative;
+    inset:auto;
+    min-height:0;
+    padding:24px 0 28px;
+    border-bottom:1px solid var(--line-light);
+    display:grid;
+    grid-template-columns:38px minmax(0,1fr);
+    grid-template-rows:auto auto;
+    gap:8px 0;
+    opacity:1 !important;
+    transform:none !important;
+  }
+
+  .word-num{
+    grid-column:1;
+    grid-row:1;
+    padding-top:7px;
+  }
+
+  .word-main{
+    grid-column:2;
+    grid-row:1;
+    align-self:start;
+    white-space:normal;
+    font-size:clamp(40px,12.5vw,56px);
+    line-height:.86;
+    letter-spacing:-.065em;
+  }
+
+  .word-sub{
+    grid-column:2;
+    grid-row:2;
+    justify-self:start;
+    max-width:95%;
+    font-size:17px;
+    line-height:1.2;
+  }
+
+  /* Problemas */
+  .problems{
+    padding:88px var(--pad) 104px;
+  }
+
+  .problems-intro{
+    margin:52px 0 66px;
+    display:block;
+  }
+
+  .problems-intro h2{
+    max-width:100%;
+    margin-bottom:26px;
+    font-size:clamp(42px,12vw,56px) !important;
+    line-height:.96 !important;
+    letter-spacing:-.055em;
+  }
+
+  .problems-intro p{
+    max-width:90%;
+    margin:0;
+    font-size:15px;
+  }
+
+  .problem-row{
+    padding:27px 0 31px !important;
+    display:grid;
+    grid-template-columns:32px minmax(0,1fr);
+    gap:8px 10px;
+    overflow:visible;
+  }
+
+  .problem-number{
+    grid-column:1;
+    grid-row:1;
+    padding-top:5px;
+  }
+
+  .problem-row h3{
+    grid-column:2;
+    grid-row:1;
+    font-size:clamp(29px,8vw,38px);
+    line-height:1;
+    letter-spacing:-.04em;
+  }
+
+  .problem-row p{
+    grid-column:2 !important;
+    grid-row:2;
+    margin:6px 0 0;
+    font-size:14px;
+    line-height:1.48;
+  }
+
+  /* Ticker */
+  .ticker-track{
+    gap:16px;
+    padding:17px 0 19px;
+    font-size:clamp(28px,9vw,40px);
+    animation-duration:34s;
+  }
+
+  /* Portfolio */
+  .portfolio-section{
+    min-height:auto;
+    padding:88px var(--pad) 92px;
+  }
+
+  .portfolio-intro{
+    width:100%;
+    margin:52px 0 42px;
+    display:block;
+  }
+
+  .portfolio-intro .overline{
+    margin-bottom:22px;
+  }
+
+  .portfolio-intro h2{
+    margin-bottom:26px;
+    font-size:clamp(48px,14vw,66px) !important;
+    line-height:.92 !important;
+    letter-spacing:-.065em;
+  }
+
+  .portfolio-copy{
+    max-width:92%;
+    font-size:15px;
+  }
+
+  .portfolio-portal{
+    min-height:176px;
+    margin:18px 0 0;
+    padding:22px 18px 20px;
+    border:0;
+    border-radius:2px;
+    background:var(--navy);
+    color:var(--gold-soft);
+    display:grid;
+    grid-template-columns:1fr auto;
+    grid-template-rows:auto 1fr;
+    align-items:end;
+    gap:10px 12px;
+    overflow:hidden;
+    transform:none !important;
+  }
+
+  .portfolio-portal::before{
+    display:none;
+  }
+
+  .portfolio-portal > *{
+    transform:none !important;
+  }
+
+  .portal-label{
+    grid-column:1 / 3;
+    align-self:start;
+    color:#aeb8c4;
+  }
+
+  .portfolio-portal strong{
+    align-self:end;
+    font-size:clamp(48px,14.5vw,68px);
+    line-height:.78;
+    letter-spacing:-.07em;
+  }
+
+  .portal-arrow{
+    align-self:end;
+    font-size:44px;
+    line-height:.8;
+  }
+
+  .portfolio-note{
+    margin-top:17px;
+    font-size:8px;
+  }
+
+  /* Trajetória */
+  .about{
+    padding:88px var(--pad) 105px;
+  }
+
+  .about-hero{
+    margin:52px 0 62px;
+  }
+
+  .about-title{
+    margin-top:25px;
+    font-size:clamp(55px,16.5vw,76px) !important;
+    line-height:.9 !important;
+    letter-spacing:-.07em;
+    padding-bottom:.12em !important;
+  }
+
+  .about-title span{
+    line-height:.9 !important;
+    padding-bottom:.1em !important;
+  }
+
+  .about-grid{
+    padding-top:32px;
+    display:block;
+  }
+
+  .about-support p{
+    max-width:100%;
+    margin-bottom:38px;
+    font-size:clamp(29px,8vw,38px);
+    line-height:1;
+  }
+
+  .about-detail{
+    max-width:96%;
+    font-size:15px;
+    line-height:1.55;
+  }
+
+  .about-detail p:last-child{
+    margin-bottom:0;
+  }
+
+  /* Princípio */
+  .principle{
+    min-height:auto;
+    padding:92px var(--pad) 100px;
+    align-items:flex-start;
+  }
+
+  .principle-outline{
+    left:-2vw;
+    top:80px;
+    transform:none !important;
+    font-size:42vw;
+    line-height:.8;
+    -webkit-text-stroke:1px rgba(7,20,38,.16);
+    opacity:.72;
+  }
+
+  .principle-content{
+    width:100%;
+    margin:0;
+  }
+
+  .principle blockquote{
+    margin:96px 0 34px;
+    font-size:clamp(42px,12vw,56px) !important;
+    line-height:.96 !important;
+    letter-spacing:-.055em;
+  }
+
+  .principle p{
+    max-width:94%;
+    margin:0;
+    font-size:17px;
+    line-height:1.45;
+  }
+
+  /* Contato */
+  .contact{
+    min-height:auto;
+    padding:88px var(--pad) 26px;
+  }
+
+  .contact-copy{
+    margin-top:62px;
+  }
+
+  .contact-lead{
+    max-width:94%;
+    font-size:22px !important;
+    line-height:1.08;
+  }
+
+  .contact-copy h2{
+    margin-top:26px;
+    font-size:clamp(54px,16.5vw,76px) !important;
+    line-height:.9 !important;
+    letter-spacing:-.07em;
+  }
+
+  .contact-actions{
+    margin-top:54px;
+    display:block;
+  }
+
+  .contact-button{
+    width:100%;
+    min-height:62px;
+    padding:18px 20px;
+  }
+
+  .small-link{
+    max-width:100%;
+    margin-top:28px;
+    line-height:1.45;
+  }
+
+  .footer{
+    margin-top:82px;
+    padding-top:18px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+    font-size:8px;
+    line-height:1.4;
+  }
+
+  /* Touch: remove respostas que dependem de hover/perspectiva */
+  .portfolio-portal,
+  .problem-row,
+  .hero-line,
+  .contact-button,
+  .small-link span{
+    transition-duration:.2s;
+  }
+}
+
+@media (max-width: 390px) {
+  :root{
+    --pad:17px;
+  }
+
+  .hero{
+    padding-top:88px;
+  }
+
+  .hero-title,
+  .hero-title-concept{
+    font-size:clamp(39px,11.8vw,46px);
+    letter-spacing:-.052em;
+  }
+
+  .hero-copy{
+    max-width:100%;
+    font-size:18px;
+  }
+
+  .thinking-intro h2,
+  .problems-intro h2{
+    font-size:40px !important;
+  }
+
+  .word-main{
+    font-size:39px;
+  }
+
+  .problem-row h3{
+    font-size:29px;
+  }
+
+  .portfolio-portal strong{
+    font-size:47px;
+  }
+
+  .about-title,
+  .contact-copy h2{
+    font-size:58px !important;
+  }
+
+  .principle blockquote{
+    font-size:40px !important;
+  }
+}
