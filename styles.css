@@ -887,3 +887,16 @@
     animation:none !important;
   }
 }
+
+
+/* Hero sem bloco de contexto auxiliar */
+.hero-footer-concept{
+  grid-template-columns:minmax(0,1fr) auto !important;
+}
+.hero-footer-concept .scroll-cue{
+  grid-column:auto !important;
+  grid-row:auto !important;
+}
+.hero-context{
+  display:none !important;
+}
