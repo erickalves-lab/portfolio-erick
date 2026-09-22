@@ -926,3 +926,10 @@
   line-height:.88 !important;
   padding-bottom:.14em !important;
 }
+
+
+/* Espaçamento tipográfico real na copy da hero */
+.hero-copy strong{
+  display:inline-block;
+  margin-left:.22em;
+}
