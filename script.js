@@ -121,31 +121,10 @@ if (hero && finePointer) {
   });
 }
 
-/* Spotlight nas seções escuras */
-if (finePointer) {
-  document.querySelectorAll(".problems, .about, .contact").forEach(section => {
-    section.addEventListener("pointermove", event => {
-      const rect = section.getBoundingClientRect();
-      const x = ((event.clientX - rect.left) / rect.width) * 100;
-      const y = ((event.clientY - rect.top) / rect.height) * 100;
-      section.style.setProperty("--spot-x", `${x}%`);
-      section.style.setProperty("--spot-y", `${y}%`);
-    });
-  });
-}
+/* Spotlights globais removidos para reduzir custo de repaint */
 
-/* Problem rows: luz acompanha o ponteiro */
-if (finePointer) {
-  document.querySelectorAll(".problem-row").forEach(row => {
-    row.addEventListener("pointermove", event => {
-      const rect = row.getBoundingClientRect();
-      const x = ((event.clientX - rect.left) / rect.width) * 100;
-      const y = ((event.clientY - rect.top) / rect.height) * 100;
-      row.style.setProperty("--row-x", `${x}%`);
-      row.style.setProperty("--row-y", `${y}%`);
-    });
-  });
-}
+/* Problem rows: resposta leve sem radial dinâmico */
+/* Pointer tracking dos problem rows removido para performance */
 
 /* Portal: tilt com limite pequeno, sem alterar o layout */
 const portal = document.querySelector(".portfolio-portal");
@@ -189,20 +168,9 @@ if (finePointer && !reduceMotion) {
 /* Cursor contextual */
 const cursor = document.querySelector(".cursor");
 if (cursor && finePointer) {
-  let cx = 0, cy = 0, tx = 0, ty = 0;
-
-  function animateCursor() {
-    cx += (tx - cx) * .24;
-    cy += (ty - cy) * .24;
-    cursor.style.left = `${cx}px`;
-    cursor.style.top = `${cy}px`;
-    requestAnimationFrame(animateCursor);
-  }
-  animateCursor();
-
   window.addEventListener("pointermove", event => {
-    tx = event.clientX;
-    ty = event.clientY;
+    cursor.style.left = `${event.clientX}px`;
+    cursor.style.top = `${event.clientY}px`;
   }, { passive:true });
 
   document.querySelectorAll("a").forEach(link => {
@@ -345,21 +313,7 @@ heroTriggers.forEach(trigger => {
   });
 });
 
-/* O universo visual também responde à posição do ponteiro. */
-if (hero && heroScenes && finePointer && !reduceMotion) {
-  hero.addEventListener("pointermove", event => {
-    const rect = hero.getBoundingClientRect();
-    const nx = (event.clientX - rect.left) / rect.width - .5;
-    const ny = (event.clientY - rect.top) / rect.height - .5;
-    hero.style.setProperty("--scene-x", `${nx * 18}px`);
-    hero.style.setProperty("--scene-y", `${ny * 12}px`);
-  });
-
-  hero.addEventListener("pointerleave", () => {
-    hero.style.setProperty("--scene-x", "0px");
-    hero.style.setProperty("--scene-y", "0px");
-  });
-}
+/* Movimento contínuo da cena removido; a troca por palavra já entrega a interação sem pesar. */
 
 /* Cursor vira apenas um sinal de exploração sobre as palavras da hero. */
 if (cursor && finePointer) {
