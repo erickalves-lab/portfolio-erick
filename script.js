@@ -80,14 +80,7 @@ function updateScroll() {
     });
   }
 
-  /* Parallax extremamente sutil na headline "parte difícil" */
-  if (aboutTitle && finePointer && !reduceMotion) {
-    const rect = aboutTitle.getBoundingClientRect();
-    const center = rect.top + rect.height / 2;
-    const delta = clamp((window.innerHeight / 2 - center) / 22, -18, 18);
-    aboutTitle.style.setProperty("--about-x", `${delta * .45}px`);
-    aboutTitle.style.setProperty("--about-gold-x", `${-delta * .7}px`);
-  }
+  /* Parallax da headline removido para preservar a renderização tipográfica. */
 
   /* A palavra de fundo "IDEIA" se move numa velocidade diferente */
   if (principleOutline && principle && !reduceMotion) {
