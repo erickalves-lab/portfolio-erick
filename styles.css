@@ -900,3 +900,29 @@
 .hero-context{
   display:none !important;
 }
+
+
+/* Correção definitiva do clipping em "Eu gosto da parte difícil." */
+.about-hero{
+  overflow:visible !important;
+}
+.about-title{
+  display:block !important;
+  overflow:visible !important;
+  clip-path:none !important;
+  filter:none !important;
+  transform:none !important;
+  will-change:auto !important;
+  line-height:.88 !important;
+  padding:0 0 .18em !important;
+  margin-bottom:0 !important;
+}
+.about-title span{
+  display:block !important;
+  overflow:visible !important;
+  clip-path:none !important;
+  transform:none !important;
+  will-change:auto !important;
+  line-height:.88 !important;
+  padding-bottom:.14em !important;
+}
