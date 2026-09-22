@@ -763,3 +763,127 @@
     transform:none!important;
   }
 }
+
+
+/* =========================================================
+   V4.2 — CORREÇÃO DE RECORTE + PERFORMANCE
+   ========================================================= */
+
+/* Headlines grandes não podem ser cortadas */
+.reveal{
+  clip-path:none !important;
+  filter:none !important;
+}
+.about-title,
+.contact-copy h2,
+.principle blockquote,
+.portfolio-intro h2,
+.problems-intro h2,
+.thinking-intro h2,
+.hero-title{
+  overflow:visible !important;
+  padding-bottom:.07em;
+}
+
+/* line-height menos agressivo nas áreas mais críticas */
+.about-title{
+  line-height:.80 !important;
+}
+.contact-copy h2{
+  line-height:.82 !important;
+}
+.principle blockquote{
+  line-height:.93 !important;
+}
+.portfolio-intro h2,
+.problems-intro h2,
+.thinking-intro h2{
+  line-height:.94 !important;
+}
+
+/* elimina blur de transição no stage */
+.word{
+  filter:none !important;
+}
+
+/* remove efeitos caros que não agregam tanto */
+.grain{
+  display:none !important;
+}
+
+.problems,
+.about,
+.contact{
+  background:initial;
+}
+.problems,
+.about{
+  background:var(--navy) !important;
+}
+.contact{
+  background:#050f1d !important;
+}
+
+.problem-row::before{
+  display:none !important;
+}
+
+.portfolio-portal::after{
+  display:none !important;
+}
+
+/* hero mais leve: mantém a troca visual, mas reduz custo */
+.hero-scenes{
+  transform:none !important;
+}
+.hero-scene{
+  filter:none !important;
+}
+.hero-scene:not(.scene-ideias){
+  will-change:auto;
+}
+
+/* remove sombras grandes e múltiplas */
+.tech-node{
+  box-shadow:0 0 24px rgba(223,200,143,.16) !important;
+}
+.idea-core{
+  box-shadow:0 0 34px rgba(223,200,143,.24) !important;
+}
+
+/* cursor segue direto o ponteiro: sem loop permanente */
+.cursor{
+  transition:
+    width .18s var(--ease),
+    height .18s var(--ease),
+    background .18s,
+    color .18s !important;
+}
+
+/* mobile e telas menores: hero visual ainda mais simples */
+@media (max-width:960px){
+  .hero-scenes{
+    opacity:.46 !important;
+  }
+  .scene-cidades::before,
+  .poster-c,
+  .tech-line-c,
+  .tech-node-d,
+  .idea-ring-c,
+  .c5{
+    display:none !important;
+  }
+}
+
+@media (max-width:580px){
+  .hero-scenes{
+    opacity:.34 !important;
+  }
+}
+
+/* motion reduzido por padrão em hardware menos confortável */
+@media (prefers-reduced-motion:reduce){
+  .ticker-track{
+    animation:none !important;
+  }
+}
