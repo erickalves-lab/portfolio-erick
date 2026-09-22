@@ -1485,3 +1485,73 @@
     font-size:40px !important;
   }
 }
+
+
+/* =========================================================
+   MOBILE — refinamento após teste em aparelho real
+   ========================================================= */
+@media (max-width:760px){
+  html,
+  body{
+    width:100%;
+    max-width:100%;
+    overflow-x:clip;
+  }
+
+  main,
+  section{
+    max-width:100%;
+  }
+
+  .contact{
+    overflow:hidden;
+  }
+
+  .contact-copy{
+    margin-top:46px;
+  }
+
+  .contact-copy h2{
+    width:100%;
+    max-width:100%;
+    font-size:clamp(42px,12vw,56px) !important;
+    line-height:.91 !important;
+    letter-spacing:-.07em;
+    overflow:visible !important;
+  }
+
+  .contact-copy h2 span{
+    display:block;
+  }
+
+  .contact-actions{
+    margin-top:46px;
+  }
+
+  .contact-button{
+    max-width:100%;
+  }
+
+  .small-link{
+    width:max-content;
+    max-width:100%;
+  }
+
+  .portfolio-portal,
+  .about,
+  .principle,
+  .thinking,
+  .problems{
+    overflow-x:clip;
+  }
+}
+
+@media (max-width:390px){
+  .contact-copy h2{
+    font-size:clamp(40px,11.6vw,46px) !important;
+  }
+
+  .contact-copy{
+    margin-top:40px;
+  }
+}
